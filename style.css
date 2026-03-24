@@ -99,3 +99,45 @@ footer {
     margin-top: 40px;
     color: #aaa;
 }
+
+/* Work Samples Side-by-Side Layout */
+.work-sample-item {
+    display: flex;
+    align-items: center; /* Centers text and image vertically */
+    justify-content: space-between;
+    gap: 30px; /* Space between text and image */
+}
+
+.project-info {
+    flex: 2; /* Takes up more space for the text */
+}
+
+/* Container for the image */
+.project-image {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 250px; /* Prevents the image from getting too tiny on medium screens */
+    flex-shrink: 0;   /* Keeps the image from squishing if text is long */
+}
+
+/* The actual image scaling logic */
+.project-image img {
+    width: 100%;      /* Scales to the width of the container */
+    max-width: 400px; /* Limits how large it can get on huge monitors */
+    height: 250px;    /* Forces a consistent height across all project cards */
+    object-fit: cover; /* Crops the image to fit the box without stretching */
+    border-radius: 8px;
+    border: 1px solid #444;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Mobile Tweak: Remove the forced height on small screens */
+@media (max-width: 768px) {
+    .project-image img {
+        height: auto; 
+        max-width: 100%;
+    }
+}
